@@ -29,6 +29,9 @@ dev_dependencies:
 
 # The following section is specific to Flutter.
 flutter:
+  assets:
+    #添加所有资源
+    - images/
 
   # To add assets to your package, add an assets section, like this:
   # assets:

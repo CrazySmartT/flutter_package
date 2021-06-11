@@ -52,15 +52,16 @@ class _NewsVideoPage extends State<NewsVideoPage>{
                       onTap: (){
                         methodChannel.invokeMethod("跳转页面",imageBean != null ? imageBean.urlschema : "");
                       },
-                      child: Image.network(
-                        imageBean != null ? imageBean.image : "",
+                      child: FadeInImage.assetNetwork(
+                        placeholder: "images/common_default_holder_light_normal.9.png",
                         width: size.width,
                         height: size.width / 3 * 2,
                         fit: BoxFit.fill,
+                        image: imageBean != null ? imageBean.image == null ? " " : imageBean.image : "",
                       ),
                     ),
                     offstage: imageBean == null,
-                  )
+                  ),
               ],
             ),
           );
