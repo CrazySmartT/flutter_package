@@ -17,6 +17,7 @@ class _NewsVideoPage extends State<NewsVideoPage>{
   MethodChannel methodChannel = MethodChannel('com.yiche.flutter.methodChannel');
   EventChannel eventChannel = EventChannel('com.yiche.flutter.eventChannel');
   List<ImageBean> _listData;
+  Size size;
 
   @override
   void initState() {
@@ -26,6 +27,7 @@ class _NewsVideoPage extends State<NewsVideoPage>{
 
   @override
   Widget build(BuildContext context) {
+    size = MediaQuery.of(context).size;
     return Scaffold(
       appBar: AppBar(title: Text("视频列表"),),
       body: NotificationListener<ScrollNotification>(
@@ -45,7 +47,7 @@ class _NewsVideoPage extends State<NewsVideoPage>{
             child: Column(
               children: <Widget>[
                 Text("视频测试第 $position 条 "),
-                Offstage(child: Image.network(imageBean != null ? imageBean.urlschema : "",width: double.infinity,height: double.infinity / 3 * 2,),offstage: imageBean == null,)
+                Offstage(child: Image.network(imageBean != null ? imageBean.image : "",width: size.width,height: size.width / 3 * 2,),offstage: imageBean == null,)
               ],
             ),
           );
