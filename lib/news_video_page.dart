@@ -29,7 +29,7 @@ class _NewsVideoPage extends State<NewsVideoPage>{
   Widget build(BuildContext context) {
     size = MediaQuery.of(context).size;
     return Scaffold(
-      appBar: AppBar(title: Text("视频列表"),),
+      appBar: AppBar(title: Text(_listData != null ? " 首页推荐数据 " : "视频列表"),),
       body: NotificationListener<ScrollNotification>(
         onNotification: (ScrollNotification notification){
           if(notification is OverscrollNotification){
@@ -46,8 +46,21 @@ class _NewsVideoPage extends State<NewsVideoPage>{
           return Container(
             child: Column(
               children: <Widget>[
-                Text("视频测试第 $position 条 "),
-                Offstage(child: Image.network(imageBean != null ? imageBean.image : "",width: size.width,height: size.width / 3 * 2,),offstage: imageBean == null,)
+                Text(imageBean == null ? "视频测试第 $position 条" : "首页Banner ${imageBean.title}"),
+                Offstage(
+                    child: GestureDetector(
+                      onTap: (){
+                        methodChannel.invokeMethod("跳转页面",imageBean != null ? imageBean.urlschema : "");
+                      },
+                      child: Image.network(
+                        imageBean != null ? imageBean.image : "",
+                        width: size.width,
+                        height: size.width / 3 * 2,
+                        fit: BoxFit.fill,
+                      ),
+                    ),
+                    offstage: imageBean == null,
+                  )
               ],
             ),
           );
