@@ -1,3 +1,4 @@
+import 'dart:collection';
 import 'dart:convert';
 
 import 'package:flutter/cupertino.dart';
@@ -56,7 +57,10 @@ class _NewsImagePage extends State<NewsImagePage>{
       appBar: AppBar(title: Text("图片展示")),
       body: GestureDetector(
         onTap: (){
-
+          Map<String,Object> params = HashMap();
+          params["event"] = "返回上一个页面";
+          FlutterParams flutterParams = FlutterParams(100,params);
+          messageChannel.send(flutterParams.toString());
         },
         child: FadeInImage.assetNetwork(
           placeholder: "images/common_default_holder_light_normal.9.png",
