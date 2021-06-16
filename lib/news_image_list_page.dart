@@ -67,7 +67,7 @@ class _NewsImagePage extends State<NewsImagePage>{
           width: size.width,
           height: size.width / 3 * 2,
           fit: BoxFit.fill,
-          image: _imageUrl,
+          image: _imageUrl == null ? "" : _imageUrl,
         ),
       ) ,
     );
