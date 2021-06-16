@@ -59,10 +59,10 @@ class _NewsImagePage extends State<NewsImagePage>{
           Map<String,Object> params = HashMap();
           params["event"] = "返回上一个页面";
           FlutterParams flutterParams = FlutterParams(100,params);
-          messageChannel.send(flutterParams);
+          messageChannel.send(jsonEncode(flutterParams));
         },
         child: FadeInImage.assetNetwork(
-          placeholder: "images/common_default_holder_light_normal.9.png",
+          placeholder: "images/common_default_holder_light_normal.png",
           width: size.width,
           height: size.width / 3 * 2,
           fit: BoxFit.fill,
