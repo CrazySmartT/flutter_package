@@ -30,8 +30,7 @@ class _NewsImagePage extends State<NewsImagePage>{
   void receiveMessage() {
     messageChannel.setMessageHandler((result) async {
       if(result != null){
-        final parsed = jsonDecode(result.toString()).cast<Map<String, dynamic>>();
-        FlutterParams params = parsed.map<FlutterParams>((json) => FlutterParams.fromJson(json));
+        FlutterParams params = FlutterParams.fromJson(jsonDecode(result));
         if(params != null){
           setState(() {
             _imageUrl = params.params["imageUrl"];
@@ -60,7 +59,7 @@ class _NewsImagePage extends State<NewsImagePage>{
           Map<String,Object> params = HashMap();
           params["event"] = "返回上一个页面";
           FlutterParams flutterParams = FlutterParams(100,params);
-          messageChannel.send(flutterParams.toString());
+          messageChannel.send(flutterParams);
         },
         child: FadeInImage.assetNetwork(
           placeholder: "images/common_default_holder_light_normal.9.png",
