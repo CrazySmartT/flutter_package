@@ -327,7 +327,7 @@
         <entry key="plugin_base">
           <value>
             <list>
-              <option value="$USER_HOME$/flutter/.pub-cache/git/plugin_base-5229ec88e8f8bb2a58616d48118cf102288b47db/lib" />
+              <option value="$USER_HOME$/flutter/.pub-cache/git/plugin_base-dec5eebe0e754c6fa8ac2b7e870e8e52df38dd7c/lib" />
             </list>
           </value>
         </entry>
@@ -488,7 +488,7 @@
       </option>
     </properties>
     <CLASSES>
-      <root url="file://$USER_HOME$/flutter/.pub-cache/git/plugin_base-5229ec88e8f8bb2a58616d48118cf102288b47db/lib" />
+      <root url="file://$USER_HOME$/flutter/.pub-cache/git/plugin_base-dec5eebe0e754c6fa8ac2b7e870e8e52df38dd7c/lib" />
       <root url="file://$USER_HOME$/flutter/.pub-cache/hosted/pub.flutter-io.cn/_fe_analyzer_shared-6.0.0/lib" />
       <root url="file://$USER_HOME$/flutter/.pub-cache/hosted/pub.flutter-io.cn/analyzer-0.39.14/lib" />
       <root url="file://$USER_HOME$/flutter/.pub-cache/hosted/pub.flutter-io.cn/archive-2.0.11/lib" />

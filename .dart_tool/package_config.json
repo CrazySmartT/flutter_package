@@ -279,7 +279,7 @@
     },
     {
       "name": "plugin_base",
-      "rootUri": "file:///Users/yiche/flutter/.pub-cache/git/plugin_base-5229ec88e8f8bb2a58616d48118cf102288b47db/",
+      "rootUri": "file:///Users/yiche/flutter/.pub-cache/git/plugin_base-dec5eebe0e754c6fa8ac2b7e870e8e52df38dd7c/",
       "packageUri": "lib/",
       "languageVersion": "2.1"
     },
@@ -422,7 +422,7 @@
       "languageVersion": "2.1"
     }
   ],
-  "generated": "2021-06-11T03:21:05.746008Z",
+  "generated": "2021-06-16T07:13:43.798091Z",
   "generator": "pub",
   "generatorVersion": "2.7.2"
 }

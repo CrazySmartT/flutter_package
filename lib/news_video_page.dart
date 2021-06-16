@@ -5,6 +5,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_package/bean/image_bean.dart';
 
+import 'news_image_list_page.dart';
+
 class NewsVideoPage extends StatefulWidget{
   @override
   State<StatefulWidget> createState() {
@@ -72,6 +74,9 @@ class _NewsVideoPage extends State<NewsVideoPage>{
                     child: GestureDetector(
                       onTap: (){
                         messageChannel.send("跳转页面");
+                        Navigator.push(context, MaterialPageRoute(builder: (context){
+                          return NewsImagePage(imageBean.image);
+                        }));
                         // methodChannel.invokeMethod("跳转页面",imageBean != null ? imageBean.urlschema : "");
                       },
                       child: FadeInImage.assetNetwork(
