@@ -14,15 +14,36 @@ class NewsVideoPage extends StatefulWidget{
 }
 
 class _NewsVideoPage extends State<NewsVideoPage>{
-  MethodChannel methodChannel = MethodChannel('com.yiche.flutter.methodChannel');
-  EventChannel eventChannel = EventChannel('com.yiche.flutter.eventChannel');
+  // MethodChannel methodChannel = MethodChannel('com.yiche.flutter.methodChannel');
+  // EventChannel eventChannel = EventChannel('com.yiche.flutter.eventChannel');
   List<ImageBean> _listData;
   Size size;
+
+  //创建 BasicMessageChannel
+  // flutter_and_native_100 为通信标识
+  // StandardMessageCodec() 为参数传递的 编码方式
+  static const messageChannel = const BasicMessageChannel(
+      'com.yiche.flutter.methodChannel', StandardMessageCodec());
+
+  //接收消息监听
+  void receiveMessage() {
+    messageChannel.setMessageHandler((result) async {
+      setState(() {
+        final parsed = jsonDecode(result.toString()).cast<Map<String, dynamic>>();
+        setState(() {
+          _listData = parsed.map<ImageBean>((json) => ImageBean.fromJson(json)).toList();
+        });
+      });
+      return 'Flutter 已收到消息';
+    });
+  }
+
 
   @override
   void initState() {
     super.initState();
-    eventChannel.receiveBroadcastStream().listen(_onEvent);
+    // eventChannel.receiveBroadcastStream().listen(_onEvent);
+    receiveMessage();
   }
 
   @override
@@ -50,7 +71,8 @@ class _NewsVideoPage extends State<NewsVideoPage>{
                 Offstage(
                     child: GestureDetector(
                       onTap: (){
-                        methodChannel.invokeMethod("跳转页面",imageBean != null ? imageBean.urlschema : "");
+                        messageChannel.send("跳转页面");
+                        // methodChannel.invokeMethod("跳转页面",imageBean != null ? imageBean.urlschema : "");
                       },
                       child: FadeInImage.assetNetwork(
                         placeholder: "images/common_default_holder_light_normal.9.png",
