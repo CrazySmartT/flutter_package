@@ -31,7 +31,7 @@ class _NewsImagePage extends State<NewsImagePage>{
     messageChannel.setMessageHandler((result) async {
       if(result != null){
         final parsed = jsonDecode(result.toString()).cast<Map<String, dynamic>>();
-        FlutterParams params = parsed.map<FlutterParams>((json) => FlutterParams.fromJson(json)).toList();
+        FlutterParams params = parsed.map<FlutterParams>((json) => FlutterParams.fromJson(json));
         if(params != null){
           setState(() {
             _imageUrl = params.params["imageUrl"];
