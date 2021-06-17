@@ -6,6 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_package/bean/image_bean.dart';
 import 'package:plugin_base/flutter_params.dart';
+import 'package:plugin_base/message_channel_single.dart';
 
 class NewsImagePage extends StatefulWidget{
   String _imageUrl;
@@ -23,8 +24,7 @@ class _NewsImagePage extends State<NewsImagePage>{
 
   _NewsImagePage([this._imageUrl]);
 
-  static const messageChannel = const BasicMessageChannel(
-      'com.yiche.flutter.methodChannel', StandardMessageCodec());
+  var messageChannel = MessageChannelSingle().getMessageChannel();
 
   //接收消息监听
   void receiveMessage() {
